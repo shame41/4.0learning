@@ -226,6 +226,7 @@ public class BST<Key extends Comparable<Key>, Value>
 		bst.put(3, "shenzhen");
 		bst.put(6, "nanning");
 		bst.put(5, "wuhan");
+
 	}
 
 }

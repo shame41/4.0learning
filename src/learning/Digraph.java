@@ -8,6 +8,7 @@ public class Digraph
 	
 	public Digraph(int V)
 	{
+		super();
 		this.V = V;
 		this.E = 0;
 		adj = (Bag<Integer>[]) new Bag[V];

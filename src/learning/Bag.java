@@ -38,7 +38,12 @@ public class Bag<Item> implements Iterable<Item>
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
-
+		Bag<Integer> a = new Bag<Integer>();
+		a.add(1);
+		a.add(2);
+		a.add(3);
+		for(Integer i : a)
+			System.out.println(i);
 	}
 
 }

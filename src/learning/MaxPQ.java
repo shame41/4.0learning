@@ -64,10 +64,11 @@ public class MaxPQ<Key extends Comparable<Key>>
 	{
 		// TODO Auto-generated method stub
 		MaxPQ<Integer> a = new MaxPQ(10);
-		a.insert(1);
-		a.insert(2);
 		a.insert(9);
 		a.insert(6);
+		a.insert(3);
+		a.insert(12);
+		a.insert(2);
 	}
 
 }
