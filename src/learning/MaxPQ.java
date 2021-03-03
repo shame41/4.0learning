@@ -1,5 +1,6 @@
 package learning;
 
+import java.util.Random;
 public class MaxPQ<Key extends Comparable<Key>>
 {
 	//基于堆的优先队列
@@ -14,6 +15,7 @@ public class MaxPQ<Key extends Comparable<Key>>
 	{
 		return N == 0;
 	}
+
 	public void insert(Key v)
 	{
 		pq[++N] = v;
@@ -52,9 +54,9 @@ public class MaxPQ<Key extends Comparable<Key>>
 		{
 			int j = 2*k;
 			if(j<N && less(j, j+1))
-				j++;
+				j++;//确定两个子节点哪个更大
 			if(!less(k, j))
-				break;
+				break;//再比较最大的子节点与父节点的关系
 			exch(k, j);
 			k = j;
 		}
@@ -63,12 +65,13 @@ public class MaxPQ<Key extends Comparable<Key>>
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
-		MaxPQ<Integer> a = new MaxPQ(10);
-		a.insert(9);
-		a.insert(6);
-		a.insert(3);
-		a.insert(12);
-		a.insert(2);
+		MaxPQ<Integer> a = new MaxPQ(1000000);
+		Random r = new Random(13);
+		for (int i = 0; i<1000000; i++)
+		{
+			a.insert(r.nextInt()%1000000);
+		}
+		System.out.println(a.delMax());
 	}
 
 }
