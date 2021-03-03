@@ -1,5 +1,7 @@
 package learning;
 
+import java.util.Scanner;
+
 public class Insertion
 {
 	public static void sort(Comparable[] a)
@@ -14,11 +16,7 @@ public class Insertion
 			//这一步不是很好理解，可以试着自己画一画
 		}
 	}
-	public static void main(String[] args)
-	{
-		// TODO Auto-generated method stub
 
-	}
 
 	private static boolean less(Comparable v, Comparable w)
 	{	return v.compareTo(w) < 0;	}
@@ -30,12 +28,18 @@ public class Insertion
 		for(int i = 0; i<a.length; i++)
 			System.out.print(a[i]+" ");
 	}
-	public static boolean isSorted(Comparable[] a)
+	public static void main(String[] argvs)
 	{
-		//测试数组元素是否有序
-		for (int i=0; i<a.length; i++)
-			if(less(a[i],a[i-1]))	return false;
-		return true;
+		Integer[] a = new Integer[10];
+		Scanner input = new Scanner(System.in);
+		for(int i = 0; i<10; i++)
+			a[i] = input.nextInt();
+		for(int i = 0; i<10; i++)
+			System.out.println(a[i]);
+		System.out.println("now let's sort it");
+		Insertion.sort(a);
+		for(Integer i : a)
+			System.out.println(i);
 	}
 	
 }

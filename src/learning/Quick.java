@@ -1,5 +1,7 @@
 package learning;
 
+import java.util.Random;
+
 public class Quick
 {
 	public static void sort(Comparable[] a)
@@ -9,7 +11,8 @@ public class Quick
 	private static void sort(Comparable[] a, int lo, int hi)
 	{
 		//标准的快速排序
-		if(hi <= lo)	return;
+		if(hi <= lo)
+			return;
 		int j = partition(a, lo, hi);//切分，快排的关键点
 		sort(a, lo, j-1);//对左边排序
 		sort(a, j+1, hi);//对右边排序
@@ -17,15 +20,19 @@ public class Quick
 	private static void sort3way(Comparable[] a, int lo, int hi)
 	{
 		//三切分快速排序，用来处理数据中有相同元素的数组的排序
-		if(hi <= lo) return;
+		if(hi <= lo)
+			return;
 		int lt = lo, i = lo + 1, gt = hi;
 		Comparable v = a[lo];
 		while(i <= gt)
 		{
 			int cmp = a[i].compareTo(v);
-			if		(cmp < 0) exch(a, lt++, i++);
-			else if (cmp > 0) exch(a, i, gt--);
-			else 			  i++;
+			if		(cmp < 0)
+				exch(a, lt++, i++);//放左边
+			else if (cmp > 0)
+				exch(a, i, gt--);//放右边
+			else
+				i++;//留在原地，之后它就是在中间
 		}//这个循环实现了a[lo..lt-1] < v = a[lt..gt] < a[gt+1..hi]
 		sort(a, lo, lt - 1);
 		sort(a, gt + 1, hi);
@@ -70,9 +77,18 @@ public class Quick
 	
 	public static void main(String[] args)
 	{
-		Integer[] a = {1,3,23,23};
-		sort(a);
-		show(a);
+		Random r = new Random(1);
+		Integer[] a = new Integer[100];
+		for (int i = 0; i<a.length; i++)
+		{
+			a[i] = r.nextInt()%1000;
+		}
+		for(Integer i : a)
+			System.out.println(i);
+		System.out.println("now let's sort it!");
+		Quick.sort(a);
+		for(Integer i : a)
+			System.out.println(i);
 
 	}
 

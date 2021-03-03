@@ -13,7 +13,11 @@
     <file url="file://$PROJECT_DIR$/src/learning/KosarajuSCC.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/learning/LinkListQueue.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/learning/MaxPQ.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/learning/MergeDU.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/learning/MergeUD.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/learning/Quick.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/learning/Selection.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/learning/Shell.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/learning/Topological.java" charset="GBK" />
   </component>
 </project>

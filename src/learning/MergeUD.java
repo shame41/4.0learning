@@ -1,5 +1,7 @@
 package learning;
 
+import java.util.Random;
+
 //自顶向下的归并排序
 public class MergeUD
 {
@@ -36,7 +38,18 @@ public class MergeUD
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
-
+		Random r = new Random(1);
+		Integer[] a = new Integer[100];
+		for (int i = 0; i<a.length; i++)
+		{
+			a[i] = r.nextInt()%1000;
+		}
+		for(Integer i : a)
+			System.out.println(i);
+		System.out.println("now let's sort it!");
+		MergeUD.sort(a);
+		for(Integer i : a)
+			System.out.println(i);
 	}
 	private static boolean less(Comparable v, Comparable w)
 	{	return v.compareTo(w) < 0;	}

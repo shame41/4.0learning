@@ -1,5 +1,7 @@
 package learning;
 
+import java.util.Random;
+
 //自底向上的归并排序
 public class MergeDU
 {
@@ -29,9 +31,18 @@ public class MergeDU
 	}
 	public static void main(String[] args)
 	{
-		Integer[] num = {1,44,2,132,4,23,133};
-		MergeDU.sort(num);
-		show(num);
+		Random r = new Random(1);
+		Integer[] a = new Integer[100];
+		for (int i = 0; i<a.length; i++)
+		{
+			a[i] = r.nextInt()%1000;
+		}
+		for(Integer i : a)
+			System.out.println(i);
+		System.out.println("now let's sort it!");
+		MergeDU.sort(a);
+		for(Integer i : a)
+			System.out.println(i);
 	}
 	
 	private static boolean less(Comparable v, Comparable w)
