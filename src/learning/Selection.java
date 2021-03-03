@@ -1,5 +1,7 @@
 package learning;
 
+import java.util.Scanner;
+
 public class Selection
 {
 	public static void sort(Comparable[] a)//指的是任何实现comparable的数组，包括Integer/Double/等等（但是不包括int/double）
@@ -11,7 +13,8 @@ public class Selection
 			//将a[i]和a[i+1..N]中最小的元素交换
 			int min = i;//最小元素的索引
 			for(int j = i+1; j<N; j++)
-				if(less(a[j],a[min])) min = j;//找到未排序序列中的最小元素
+				if(less(a[j],a[min]))
+					min = j;//找到未排序序列中的最小元素
 			exch(a,i,min);
 		}
 	}
@@ -37,11 +40,15 @@ public class Selection
 	public static void main(String[] args)
 	{
 		Integer[] a = new Integer[10];
-		for(int i=a.length-1; i>=0; i--)
-			a[i] = i;
+		Scanner input = new Scanner(System.in);
+		for(int i = 0; i<10; i++)
+			a[i] = input.nextInt();
+		for(int i = 0; i<10; i++)
+			System.out.println(a[i]);
+		System.out.println("now let's sort it");
 		Selection.sort(a);
-		for(Integer c : a)
-			System.out.print(a);
+		for(Integer i : a)
+			System.out.println(i);
 	}
 
 }

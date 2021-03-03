@@ -16,13 +16,16 @@ public class IndexMinPQ<Key extends Comparable<Key>>
 	}
 	private void exch(int i, int j)
 	{
-		Key t = keys[i];
-		keys[i] = keys[j];
-		keys[j] = t;
+		int t = pq[i];
+		pq[i] = pq[j];
+		pq[j] = t;
+		t = qp[pq[i]];
+		qp[pq[i]] = qp[pq[j]];
+		qp[pq[j]] = t;
 	}
 	private void swim(int k)//ÉÏ¸¡
 	{
-		while(k>1 && bigger(k/2, k))
+		while(k>1 && less(k/2, k))
 		{
 			exch(k/2, k);
 			k = k/2;
@@ -33,17 +36,17 @@ public class IndexMinPQ<Key extends Comparable<Key>>
 		while(2*k <= N)
 		{
 			int j = 2*k;
-			if(j<N && bigger(j, j+1))
+			if(j<N && less(j, j+1))
 				j++;
-			if(!bigger(k, j))
+			if(!less(k, j))
 				break;
 			exch(k, j);
 			k = j;
 		}
 	}
-	private boolean bigger(int i, int j)
+	private boolean less(int i, int j)
 	{
-		return keys[i].compareTo(keys[j]) > 0;
+		return keys[pq[i]].compareTo(keys[pq[j]]) > 0;
 	}
 	public boolean isEmpty()
 	{
@@ -96,7 +99,16 @@ public class IndexMinPQ<Key extends Comparable<Key>>
 	}
 	public static void main(String[] args)
 	{
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stu
+		IndexMinPQ<Integer> a = new IndexMinPQ<Integer>(10);
+		a.insert(1,11);
+		a.insert(3,6);
+		a.insert(4,14);
+		a.insert(6,3);
+		a.insert(8,8);
+		a.insert(10,2);
+		a.delete(4);
+		System.out.println(a.minIndex());
 
 	}
 

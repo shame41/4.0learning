@@ -3,7 +3,7 @@ package learning;
 public class EdgeWeightedDigraph
 {
     private final int V;		//amount of vertex
-    private int E;				//amount of edges
+    private int E;				//amount of edgehttps://github.com/shame41/4.0learning.gits
     private Bag<DirectedEdge>[] adj;//adjacency list
 
     public EdgeWeightedDigraph(int V)
