@@ -75,7 +75,6 @@ public class ST<Key extends Comparable<Key>, Value>
 		//表中键值对的数量
 		return N;
 	}
-	
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub

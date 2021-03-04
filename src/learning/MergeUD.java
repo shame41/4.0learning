@@ -39,10 +39,10 @@ public class MergeUD
 	{
 		// TODO Auto-generated method stub
 		Random r = new Random(1);
-		Integer[] a = new Integer[100];
+		Integer[] a = new Integer[10];
 		for (int i = 0; i<a.length; i++)
 		{
-			a[i] = r.nextInt()%1000;
+			a[i] = r.nextInt()%10;
 		}
 		for(Integer i : a)
 			System.out.println(i);
