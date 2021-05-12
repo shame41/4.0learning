@@ -14,6 +14,15 @@ public class Topological
 			order = dfs.reversePost();
 		}
 	}
+	public Topological(EdgeWeightedDigraph G)
+	{
+		EdgeWeightedDiCycle cyclefinder = new EdgeWeightedDiCycle(G);
+		if(!cyclefinder.hasCycle())
+		{
+			EdgeWeightedDiDFO dfs = new EdgeWeightedDiDFO(G);
+			order = dfs.reversePost();
+		}
+	}
 	public Iterable<Integer> order()
 	{
 		return order;

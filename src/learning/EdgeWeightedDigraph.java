@@ -17,12 +17,24 @@ public class EdgeWeightedDigraph
     public int V() {return V;}
     public int E() {return E;}
 
+    public void connect(int from, int to, Double weight)
+    {
+        DirectedEdge a = new DirectedEdge(from, to, weight);
+        add(a);
+    }
     public void addEdge(DirectedEdge e)
     {
         //add edge e to the EdgeWeightedDigraph
         adj[e.from()].add(e);
         E++;
     }
+    private void add(DirectedEdge e)
+    {
+        //add edge e to the EdgeWeightedDigraph
+        adj[e.from()].add(e);
+        E++;
+    }
+
 
     public Iterable<DirectedEdge> adj(int v)
     {

@@ -1,6 +1,8 @@
 package learning;
 
 
+import java.util.Random;
+
 //二叉查找树
 public class BST<Key extends Comparable<Key>, Value>
 {
@@ -28,8 +30,10 @@ public class BST<Key extends Comparable<Key>, Value>
 	}
 	private int size(Node x)
 	{
-		if(x == null) return 0;
-		else		  return x.N;
+		if(x == null)
+			return 0;
+		else
+			return x.N;
 	}
 	public Value get(Key key)
 	{
@@ -39,11 +43,15 @@ public class BST<Key extends Comparable<Key>, Value>
 	{
 		//在以x为根节点的子树中查找并返回key所对应的值
 		//如果找不到则返回null
-		if(x == null) return null;
+		if(x == null)
+			return null;
 		int cmp = key.compareTo(x.key);
-		if		(cmp < 0) return get(x.left, key);
-		else if (cmp > 0) return get(x.right, key);
-		else return x.val;
+		if		(cmp < 0)
+			return get(x.left, key);
+		else if (cmp > 0)
+			return get(x.right, key);
+		else
+			return x.val;
 	}
 	
 	public void put(Key key, Value val)
@@ -55,14 +63,16 @@ public class BST<Key extends Comparable<Key>, Value>
 	{
 		//如果key存在于以x为根节点的子树中则更新它的值
 		//否则将以key和val为键值对的新节点插入到该子树中
-		if(x == null) return new Node(key, val, 1);
+		if(x == null)
+			return new Node(key, val, 1);
 		int cmp = key.compareTo(x.key);
 		//递归实现，相当美妙
 		if		(cmp < 0)
 			x.left = put(x.left, key, val);
 		else if (cmp > 0)
 			x.right = put(x.right, key, val);
-		else x.val = val;
+		else
+			x.val = val;
 		x.N = size(x.left) + size(x.right) + 1;
 		return x;
 	}
@@ -165,7 +175,8 @@ public class BST<Key extends Comparable<Key>, Value>
 	private Node delete(Node x, Key key)
 	{
 		//二叉查找树删除节点操作，难点
-		if(x == null) return null;
+		if(x == null)
+			return null;
 		int cmp = key.compareTo(x.key);
 		if		(cmp < 0)
 			x.left = delete(x.left, key);
@@ -177,6 +188,7 @@ public class BST<Key extends Comparable<Key>, Value>
 			//剩下的工作是判断该节点有几个子节点
 			if(x.right == null) return x.left;
 			if(x.left == null)  return x.right;
+			//很奇怪，如果左右节点都为空，那么上面的的操作不会返回一个Null吗
 			Node t = x;
 			x = min(t.right);
 			x.right = deleteMin(t.right);
@@ -220,13 +232,11 @@ public class BST<Key extends Comparable<Key>, Value>
 	
 	public static void main(String[] args)
 	{
-		BST<Integer, String> bst = new BST<Integer, String>();
-		bst.put(1, "beijing");
-		bst.put(2, "shanghai");
-		bst.put(3, "shenzhen");
-		bst.put(6, "nanning");
-		bst.put(5, "wuhan");
-
+		BST<Integer, Integer> bst = new BST<Integer, Integer>();
+		Random r = new Random(1);
+		bst.put(1,1);
+		bst.put(2,2);
+		bst.deleteMin();
 	}
 
 }

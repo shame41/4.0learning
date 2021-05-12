@@ -18,14 +18,10 @@ public class LinkList<Item> implements Iterable<Item>
 	{
 		// TODO Auto-generated method stub
 		LinkList<Integer> a = new LinkList<Integer>();
-		a.add(0);
 		a.add(1);
 		a.add(2);
 		a.add(3);
-		a.delete(3);
-		for(Integer i : a)
-			System.out.println(i);
-		System.out.println(a.KeyFind(2).item);
+
 		
 	}
 	
@@ -89,7 +85,8 @@ public class LinkList<Item> implements Iterable<Item>
 		return true;
 	}
 
-	
+
+
 	public boolean isEmpty()	{return first == null;}
 	public int size()				{return N;}
 	@Override

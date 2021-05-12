@@ -1,6 +1,6 @@
 package learning;
 
-public class Digraph
+public class Digraph extends Graph
 {
 	private final int V;		//顶点总数
 	private int E;				//边的总数
@@ -8,7 +8,7 @@ public class Digraph
 	
 	public Digraph(int V)
 	{
-		super();
+		super(V);
 		this.V = V;
 		this.E = 0;
 		adj = (Bag<Integer>[]) new Bag[V];

@@ -15,6 +15,21 @@ public class AcyclicSP
         distTo[s] = 0.0;
 
         Topological top = new Topological(G);
+        for (int v : top.order())
+            relax(G, v);
+    }
+
+    private void relax(EdgeWeightedDigraph G, int v)
+    {
+        for (DirectedEdge e : G.adj(v))
+        {
+            int w = e.to();
+            if (distTo[w] > distTo[v] + e.weight())
+            {
+                distTo[w] = distTo[v] + e.weight();
+                edgeTo[w] = e;
+            }
+        }
     }
 
 

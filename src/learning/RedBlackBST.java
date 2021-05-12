@@ -30,7 +30,10 @@ public class RedBlackBST<Key extends Comparable<Key>, Value>
 	}
 	public int size(Node x)
 	{
-		return x.N;
+		if (x == null)
+			return 0;
+		else
+			return x.N;
 	}
 	private boolean isRed(Node x)
 	{
@@ -119,9 +122,9 @@ public class RedBlackBST<Key extends Comparable<Key>, Value>
 	private Node deleteMin(Node h)
 	{
 		if(h.left == null)
-			return null;
-		if(!isRed(h.left) && !isRed(h.left.left))
-			h = moveRedLeft(h);
+			return null;//说明最小节点就是当前结点，将根节点删除
+		if(!isRed(h.left) && !isRed(h.left.left))//判断左结点是否为2-结点
+			h = moveRedLeft(h);//如果不是，向周围（兄弟或父亲）借一个结点
 		h.left = deleteMin(h.left);
 		return balance(h);
 	}
@@ -229,7 +232,13 @@ public class RedBlackBST<Key extends Comparable<Key>, Value>
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
-
+		RedBlackBST a = new RedBlackBST();
+		a.put("A", 1);
+		a.put("B",2);
+		a.put("C",3);
+		a.put("D",4);
+		a.put("E",5);
+		a.put("F",6);
 	}
 
 }
